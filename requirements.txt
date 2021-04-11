@@ -1,3 +1,4 @@
 pandas>=0.19
 git+git://github.com/rasbt/mlxtend.git#egg=mlxtend
 numpy>=1.9.2
+streamlit
