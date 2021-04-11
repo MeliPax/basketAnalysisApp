@@ -2,12 +2,15 @@
 import pandas as pd
 from mlxtend.frequent_patterns import apriori
 from mlxtend.frequent_patterns import association_rules
+# import matplotlib.pyplot as plty
+# from matplotlib import style
 import numpy as np
 import streamlit as st
 
 
 #  Importing the dataset. This data set is for an online retail shop, containing more than 100 thousand sales records for 1 year (2018-2019)
-df = pd.read_csv("transaction_data.csv")
+df = pd.read_csv(
+    "drive/My Drive/datasets/transaction_data.csv", encoding='latin1')
 
 
 def clean_data(df):
@@ -79,12 +82,12 @@ rules_list = rules["antecedents"].to_list()
 
 html_temp = """ 
 <div style ="background-color:#85c1ff;padding:13px"> 
-<h1 style ="color:black;text-align:center;">Basket analysis Web App</h1> 
+<h1 style ="color:black;text-align:center;">Basket Analysis Web App</h1> 
 </div> 
 """
 
 st.markdown(html_temp, unsafe_allow_html=True)
-input_product = st.selectbox("Search and Select product", item_list)
+input_product = st.selectbox("Search or Select product", item_list)
 
 if (input_product):
     if (input_product == ''):
@@ -92,4 +95,5 @@ if (input_product):
     else:
         results = find_product_rules(input_product)
         st.write("Basket results")
-        st.write(results)
+        for i in results['consequents']:
+            st.write(i)
