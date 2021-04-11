@@ -7,7 +7,7 @@ import streamlit as st
 
 
 #  Importing the dataset. This data set is for an online retail shop, containing more than 100 thousand sales records for 1 year (2018-2019)   
-datadf = pd.read_csv("drive/My Drive/datasets/transaction_data.csv", encoding='latin1')
+datadf = pd.read_csv("transaction_data.csv")
 
 df = datadf.copy()
 
